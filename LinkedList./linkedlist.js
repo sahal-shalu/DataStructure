@@ -90,7 +90,47 @@ class LinkedList{
      }
 
 
+     //remove with value
 
+    removeValue(value){
+       if(this.IsEmpty()){
+         return null
+       }
+       if(this.head.value===value){
+        this.head=this.head.next
+        this.size--
+        return value
+       }else{
+        let prev=this.head
+        while(prev.next && prev.next.value !== value){
+            prev=prev.next
+        }
+        if(prev.next){
+           let removedNode=prev.next
+           prev.next=removedNode.value
+           this.size--
+           return value
+        }
+
+       }
+       return null
+    }
+
+
+    //reverse
+
+
+    reverse(){
+        let prev=null
+        let curr=this.head
+        while(curr){
+            let next=curr.next
+            curr.next=prev
+            prev=curr
+            curr=next
+        }
+        this.head=prev
+    }
 
 
      //to display
@@ -121,9 +161,14 @@ list.preppend(30)
 list.Append(60)
 list.Append(70)
 
-list.insert(100,2)
+
 list.insert(100,0)
 
 console.log(list.removeFrom(2))
+
+console.log(list.removeValue(100))
+
+
+list.reverse()
 
 list.print()
