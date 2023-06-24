@@ -1,51 +1,44 @@
 class Node{
-    constructor(value){
+    constructor(value) {
         this.value=value
         this.left=null
         this.right=null
-
     }
 }
-
-class BinerySearchTree{
+class BST{
     constructor() {
         this.root=null
     }
-    isEmpty(){
+    IsEmpty(){
         return this.root===null
     }
 
     insert(value){
-        const newNode=new Node(value)
-    if(this.isEmpty()){
-        this.root=newNode
-    }else{
-        this.insertNode(this.root,newNode)
-    }
+        const node=new Node(value)
+        if( this.IsEmpty()){
+            this.root=node
+        }else{
+            this.insertNOde(this.root,node)
+        }
     }
 
-    insertNode(root,newNode){
-        if(newNode.value<root.value){
+    insertNOde(root,node){
+          if(node.value<root.value){
             if(root.left===null){
-                root.left=newNode
-            }else{
-                this.insertNode(root.left,newNode )
-            }
+                root.left=node
             }else{
                 if(root.right===null){
-                    root.right=newNode
+                    root.right=node
                 }else{
-                    this.insertNode(root.right,newNode)
+                    this.insertNOde(root.right,node)
                 }
-        }
+            }
+          }
     }
 }
 
-
-const bst=new BinerySearchTree()
-
-
-
+const bst=new BST()
 bst.insert(10)
-bst.insert(5)
-bst.insert(15)
+bst.insert(50)
+bst.insert(40)
+
