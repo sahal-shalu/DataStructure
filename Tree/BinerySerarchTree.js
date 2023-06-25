@@ -134,6 +134,20 @@ class BST{
         }
         return root
     }
+
+
+    IsBst(){
+        return this.helper(this.root,-Infinity,Infinity)
+    }
+    helper(node,min,max){
+        if(!node){
+            return true
+        }if(node.value<min||node.value>max){
+            return false
+        }else{
+            return (this.helper(node.right,node.value,max) && this.helper(node.left,min,node.value))
+        }
+    }
 }
 
 const bst=new BST()
@@ -154,5 +168,6 @@ console.log('.......')
 console.log(bst.min(bst.root))
 console.log(bst.max(bst.root))
 bst.delete(10)
+console.log(bst.IsBst())
 
 
