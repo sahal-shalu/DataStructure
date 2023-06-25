@@ -77,6 +77,21 @@ class BST{
             console.log(root.value)
         }
     }
+
+    levelOrder(){
+        const que=[]
+        que.push(this.root)
+        while(que.length){
+            let cur=que.shift()
+            console.log(cur.value)
+            if(cur.left){
+                que.push(cur.left)
+            }
+            if(cur.right){
+                que.push(cur.right)
+            }
+        }
+    }
 }
 
 const bst=new BST()
@@ -85,11 +100,12 @@ bst.insert(5)
 bst.insert(15)
 bst.insert(3)
 bst.insert(7)
-bst.insert(30)
 console.log(bst.search(bst.root,50))
 bst.PreOrder(bst.root)
 console.log("......");
 bst.inOrder(bst.root)
 console.log("......");
 bst.postOrder(bst.root)
+console.log('.......')
+bst.levelOrder(bst.root)
 
