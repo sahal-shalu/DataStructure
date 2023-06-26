@@ -67,6 +67,24 @@ sort(){
 console.log(sorted)
 }
 
+max(){
+    if(this.heap.length===0)return null
+    if(this.heap.legnth===1)return this.heap.pop()
+    const max=this.heap[0]
+    this.heap[0]=this.heap.pop()
+    this.shiftdown(0)
+    return max
+}
+
+min(){
+    if(this.heap.length===0)return null
+    if(this.heap.length===1)return this.heap.pop()
+    const min=this.heap[0]
+    this.heap[0]=this.heap.pop()
+    this.shiftdown(0)
+    return min
+}
+
 print(){
     console.log(this.heap)
 }
@@ -96,4 +114,5 @@ a.print()
 console.log(a.remove())
 a.insert(90)
 a.print()
-
+console.log(a.max())
+console.log(a.min())
