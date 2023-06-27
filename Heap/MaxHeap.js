@@ -1,4 +1,4 @@
-class Heap{
+class MaxHeap{
    constructor(){
     this.heap=null
    }
@@ -67,23 +67,6 @@ sort(){
 console.log(sorted)
 }
 
-max(){
-    if(this.heap.length===0)return null
-    if(this.heap.legnth===1)return this.heap.pop()
-    const max=this.heap[0]
-    this.heap[0]=this.heap.pop()
-    this.shiftdown(0)
-    return max
-}
-
-min(){
-    if(this.heap.length===0)return null
-    if(this.heap.length===1)return this.heap.pop()
-    const min=this.heap[0]
-    this.heap[0]=this.heap.pop()
-    this.shiftdown(0)
-    return min
-}
 
 print(){
     console.log(this.heap)
@@ -105,7 +88,7 @@ rightchild(i){
 }
 
 
-const a=new Heap()
+const a=new MaxHeap()
 
 a.build([5,3,2,22,1,6])
 a.print()
@@ -114,5 +97,4 @@ a.print()
 console.log(a.remove())
 a.insert(90)
 a.print()
-console.log(a.max())
-console.log(a.min())
+a.sort()
