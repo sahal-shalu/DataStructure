@@ -146,6 +146,18 @@ else{
     return -1
 
    }
+
+   reverse(){
+    let prev=null
+    let curr=this.head
+    while(curr){
+        let next=curr.next
+        curr.next=prev
+        prev=curr
+        curr=next
+    }
+this.head=prev
+   }
 }
 
 const list=new LinkedList()
@@ -167,6 +179,8 @@ list.insert(13,7)
 console.log(list.removefrom(1))
 list.print()
 console.log(list.search(98))
+list.reverse()
 list.print()
+
 
 
