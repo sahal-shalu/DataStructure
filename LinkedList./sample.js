@@ -103,6 +103,49 @@ class LinkedList{
         return removednode.value
     }
 
+    removeValue(value){
+     if(this.isEmpty()){
+        return null
+     }
+     if(this.head.value===value){
+        this.head=this.head.next
+        this.size--
+        return value
+     }
+else{
+    let prev=this.head
+    while(prev.next && prev.next.value !== value){
+        prev=prev.next
+    }
+    if(prev.next){
+    
+       const removednode=prev.next
+        prev.next=removednode.next
+        this.size--
+        return value
+    }
+    return null
+
+}
+
+    }
+
+   search(value){
+    if(this.isEmpty()){
+        return -1
+    }
+    let i=0;
+    let curr=this.head
+    while(curr){
+        if(curr.value===value){
+            return i
+        }
+        curr=curr.next
+        i++
+    }
+    return -1
+
+   }
 }
 
 const list=new LinkedList()
@@ -121,7 +164,9 @@ list.insert(10,7)
 list.insert(11,7)
 list.insert(12,7)
 list.insert(13,7)
-list.removefrom()
-
-
+console.log(list.removefrom(1))
 list.print()
+console.log(list.search(98))
+list.print()
+
+
